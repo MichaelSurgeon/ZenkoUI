@@ -1,0 +1,43 @@
+
+.signIn {
+    font-size: 20px;
+    font-family: Baloo-Tamma-2;
+    margin-top: 15px;
+    float: right;
+}
+
+.signIn:hover {
+   color: lightcoral;
+}
+
+.header-wrapper {
+    height: 60px;
+}
+
+.content {
+    margin-top: 150px;
+}
+
+.content-left {
+    float: left;
+    margin-left: 65px;
+}
+
+.content-right {
+    color: white;
+    float:right;
+    width: 750px;
+    font-size: 30px;
+    text-align: center;
+    margin-right: 65px;
+    margin-top: 95px;
+}
+
+.content-right h1{
+    font-size: 80px;
+    margin-bottom: 0;
+}
+
+.content-right h2{
+    margin: 0;
+}
