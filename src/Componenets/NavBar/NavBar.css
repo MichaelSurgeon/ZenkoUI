@@ -4,6 +4,7 @@ nav {
 
 ul {
     padding: 0;
+    float: left;
 }
 
 li {
@@ -13,8 +14,7 @@ li {
 }
 
 a {
-    font-family: Baloo-Tamma-2;
-    font-weight: 900;
+    font-weight: 500;
     color: white;
     text-decoration: none;
 }
