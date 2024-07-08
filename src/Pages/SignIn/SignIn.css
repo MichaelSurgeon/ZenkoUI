@@ -1,0 +1,47 @@
+
+.signUp{
+    font-size: 1.5rem;
+    margin-top: 4vh;
+    float: right;
+    list-style-type: none;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+}
+
+.signUp:hover {
+   color: lightcoral;
+}
+
+.header-wrapper {
+    height: 1rem;
+}
+
+.content {
+    margin-top: 8rem;
+}
+
+.content-left {
+    float: left;
+    margin-left: 10rem;
+    margin-top: 6rem;
+}
+
+.content-right {
+    color: white;
+    float:right;
+    width: 50rem;
+    font-size: 30px;
+    text-align: center;
+    margin-right: 8rem;
+    margin-top: 6rem;
+}
+
+.content-right h1{
+    font-size: 5rem;
+    margin-bottom: 0;
+}
+
+.content-right h2{
+    margin: 0;
+}

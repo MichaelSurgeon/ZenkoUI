@@ -42,6 +42,9 @@ input {
     cursor: pointer;
     font-size: 1.2rem;
     font-weight: 400;
+    width: 21rem;
+    border-radius: 10rem;
+    border: 0.2rem solid black;
 }
 
 .input-button:hover{

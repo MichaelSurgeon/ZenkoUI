@@ -11,7 +11,7 @@ function SignUp() {
                 </header>
             </div>
             <div className="content">
-                <div className="content-left">
+                <div className="content-left-sign-up">
                     <SignUpCard/>
                 </div>
                 <div className="content-right">

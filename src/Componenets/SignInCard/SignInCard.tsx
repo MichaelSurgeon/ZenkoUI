@@ -1,6 +1,6 @@
-import "./SignUpCard.css"
+import "./SignInCard.css"
 
-function SignUpCard() {
+function SignInCard() {
 
     const submitForm = (event : any) => {
         event.preventDefault();
@@ -10,7 +10,7 @@ function SignUpCard() {
         <>
         <div className="card-wrapper">
           <div className="card-header">
-              <h1>Sign Up</h1>
+              <h1>Sign In</h1>
           </div>
           <div className="card-content">
               <form onSubmit={submitForm}>
@@ -25,22 +25,7 @@ function SignUpCard() {
                   </label>
                   <br />
                   <label>
-                      <p>First Name</p>
-                      <input className="input-item" type="text" name ="firstname" />
-                  </label>
-                  <br />
-                  <label>
-                      <p>Second Name</p>
-                      <input className="input-item" type="text" name ="secondname" />
-                  </label>
-                  <br />
-                  <label>
-                      <p>Address line</p>
-                      <input className="input-item" type="text" name ="addressline" />
-                  </label>
-                  <br />
-                  <label>
-                      <input className="input-button" type="submit" name ="submit" />
+                      <button className="input-button">Log in!</button>
                   </label>
               </form>
           </div>
@@ -49,4 +34,4 @@ function SignUpCard() {
       )
 }
 
-export default SignUpCard;
+export default SignInCard;
