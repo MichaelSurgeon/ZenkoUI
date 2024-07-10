@@ -43,7 +43,6 @@ export const getUser = async (email, password)  => {
   }
 };
 
-
 const fetchData = async (endpoint, method, headers, body) => {
   return await fetch(endpoint, {
     method: method,
