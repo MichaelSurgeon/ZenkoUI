@@ -1,9 +1,26 @@
 import "./SignInCard.css"
+import { getUser } from '../Services/AccountService.js'; // Adjust path if needed
+import  { useNavigate } from 'react-router-dom'
 
 function SignInCard() {
 
-    const submitForm = (event : any) => {
-        event.preventDefault();
+    const navigate = useNavigate();
+
+    const submitForm = async (e : any) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const email = formData.get('email');
+        const password = formData.get('password');
+        
+        try {
+            const createUserResponse = await getUser(email?.toString(), password?.toString());
+            alert(createUserResponse); 
+            if(createUserResponse === "Authorised") {
+                navigate("/Home")
+            }
+        } catch (error) {
+            alert('Error getting user. Please try again.');
+        }
     }
 
     return (
