@@ -1,9 +1,24 @@
 import "./SignUpCard.css"
+import { createUser } from '../Services/AccountService.js'; // Adjust path if needed
 
 function SignUpCard() {
 
-    const submitForm = (event : any) => {
-        event.preventDefault();
+    const submitForm = async (e : any) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const email = formData.get('email');
+        const password = formData.get('password');
+        const firstName = formData.get('firstname');
+        const secondName = formData.get('secondname');
+        const addressLine = formData.get('addressline')
+        
+        const body = JSON.stringify({email, password, firstName, secondName, addressLine});
+        try {
+            const createUserResponse = await createUser(body);
+            alert(createUserResponse); 
+        } catch (error) {
+            alert('Error creating user. Please try again.');
+        }
     }
 
     return (
