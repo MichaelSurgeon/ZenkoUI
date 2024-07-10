@@ -14,6 +14,8 @@ function SignUpCard() {
         
         const body = JSON.stringify({email, password, firstName, secondName, addressLine});
         try {
+            // do something with plaintext passwords
+            // this will have to redirect to sign in page once user has been added
             const createUserResponse = await createUser(body);
             alert(createUserResponse); 
         } catch (error) {
