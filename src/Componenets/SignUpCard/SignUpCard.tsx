@@ -1,7 +1,10 @@
 import "./SignUpCard.css"
 import { createUser } from '../Services/AccountService.js'; // Adjust path if needed
+import  { useNavigate } from 'react-router-dom'
 
 function SignUpCard() {
+
+    const navigate = useNavigate();
 
     const submitForm = async (e : any) => {
         e.preventDefault();
@@ -15,9 +18,11 @@ function SignUpCard() {
         const body = JSON.stringify({email, password, firstName, secondName, addressLine});
         try {
             // do something with plaintext passwords
-            // this will have to redirect to sign in page once user has been added
             const createUserResponse = await createUser(body);
             alert(createUserResponse); 
+            if(createUserResponse === "User Added") {
+                navigate("/SignIn")
+            }
         } catch (error) {
             alert('Error creating user. Please try again.');
         }

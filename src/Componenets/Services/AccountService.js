@@ -8,16 +8,16 @@ export const createUser = async (body)  => {
       const response = await fetchData(createUserEndpoint, post, genericHeaders, body);
 
       if (response.ok) {
-        return "UserAdded"
+        return "User Added"
       } 
-      else if(response.status == 409) 
+      else if(response.status === 409) 
       {
        return 'User already exists';
       }
     } 
     catch 
     {
-      return 'Error fetching data';
+      return 'Error creating user';
     }
 };
 
