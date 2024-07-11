@@ -1,0 +1,12 @@
+.header-wrapper {
+    height: 5rem;
+}
+
+.dropzone {
+    margin-top: 6rem;
+}
+
+.dropzone-header {
+    color: white;
+    font-size: 2rem;
+}

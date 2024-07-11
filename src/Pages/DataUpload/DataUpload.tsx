@@ -1,11 +1,15 @@
 import NavBar from "../../Componenets/NavBar/NavBar";
+import './DataUpload.css'
+
 
 function DataUpload() {
     return (
         <>
-        <div className="wrapper">
+        <div className="header-wrapper">
             <NavBar></NavBar>
-            <h1>Data Upload</h1>
+        </div>
+        <div className="dropzone">
+            <h1 className="dropzone-header">File Upload</h1>
         </div>
         </>
     )

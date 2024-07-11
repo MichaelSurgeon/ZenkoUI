@@ -1,7 +1,7 @@
-const createUserEndpoint = 'https://localhost:7128/api/account/createUser';
-const getUserEndpoint = 'https://localhost:7128/api/account/getUser';
+import { host } from '../Helpers/config.js';
 
-
+const createUserEndpoint =  host + 'api/account/createUser';
+const getUserEndpoint = host + 'api/account/getUser';
 const post = 'POST';
 const GET = 'GET'
 const genericHeaders = { 'Content-Type': 'application/json' }
@@ -29,6 +29,8 @@ export const getUser = async (email, password)  => {
     let endpoint = getUserEndpoint + `?Email=${email}&Password=${password}`;
     const response = await fetchData(endpoint, GET, genericHeaders, null);
     if (response.ok) {
+      const data = await response.json();
+      localStorage.setItem("UserId", data.userId)
       return "Authorised"
     } 
     else if(response.status === 404 || 401) 
