@@ -8,10 +8,61 @@
     box-shadow: 10px 10px 70px 0px rgba(0,0,0,0.75);
 }
 
-h2 {
+.fileInfo {
     text-align: center;
     vertical-align: middle;
-    margin-top: 10rem;
+    margin-top: 6rem;
     font-size: 2rem;
     color: rgb(163, 163, 163);
+    margin-bottom: 0;
 }
+
+.fileInfoOr {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 2rem;
+    color: rgb(163, 163, 163);
+    margin-top: 2rem;
+}
+
+.selectFileButton {
+    margin-top: 1rem;
+    width: 20rem;
+    height: 2.5rem;
+    background-color:#D1495B;
+    border-radius: 2rem;
+    cursor: pointer;
+    border: none;
+}
+
+.selectFileButton:hover {
+    background-color: #00798C;
+}
+
+.selectFileName{
+    margin: 0;
+    color: white;
+    font-size: 1rem;
+}
+
+
+.calculationButton {
+    margin-top: 2rem;
+    width: 20rem;
+    height: 2.5rem;
+    background-color:#03aa57;
+    border-radius: 2rem;
+    cursor: pointer;
+    border: none;
+}
+
+.calculationButton:hover {
+    background-color: #00798C;
+}
+
+.submitCalculationFileName{
+    margin: 0;
+    color: white;
+    font-size: 1rem;
+}
+

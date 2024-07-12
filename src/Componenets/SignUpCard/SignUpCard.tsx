@@ -1,5 +1,5 @@
 import "./SignUpCard.css"
-import { createUser } from '../Services/AccountService.js'; // Adjust path if needed
+import { createUser } from '../Services/AccountService.js';
 import  { useNavigate } from 'react-router-dom'
 
 function SignUpCard() {
