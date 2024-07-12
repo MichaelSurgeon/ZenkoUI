@@ -4,7 +4,9 @@ const FileUploadBox = () => {
     return (
         <>
             <div className='file-drop-wrapper'>
-                <form action="POST"></form>
+                <h2>Drop your CSV file here</h2>
+                <form action="POST">
+                </form>
             </div>
         </>
     )

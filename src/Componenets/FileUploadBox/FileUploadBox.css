@@ -1,0 +1,17 @@
+.file-drop-wrapper {
+    width: 50rem;
+    height: 25rem;
+    border-radius: 5rem;
+    background-color: white;
+    -webkit-box-shadow: 10px 10px 70px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 70px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 70px 0px rgba(0,0,0,0.75);
+}
+
+h2 {
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 10rem;
+    font-size: 2rem;
+    color: rgb(163, 163, 163);
+}

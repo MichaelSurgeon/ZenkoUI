@@ -1,3 +1,4 @@
+import FileUploadBox from "../../Componenets/FileUploadBox/FileUploadBox";
 import NavBar from "../../Componenets/NavBar/NavBar";
 import './DataUpload.css'
 
@@ -8,8 +9,9 @@ function DataUpload() {
         <div className="header-wrapper">
             <NavBar></NavBar>
         </div>
-        <div className="dropzone">
-            <h1 className="dropzone-header">File Upload</h1>
+        <h1 className="dropzone-header">File Upload</h1>
+        <div className="dropzone-wrapper">
+            <FileUploadBox />
         </div>
         </>
     )
