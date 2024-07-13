@@ -1,24 +1,27 @@
 import { useRef, useState } from 'react';
 import { postFile } from '../Services/FileHandlerService.js';
+import { createCalculation } from '../Services/CalculationService.js';
+
 import './FileUploadBox.css'
 
 const FileUploadBox = () => {
-  const [files, setFiles] = useState(); 
+  const [files, setFiles] = useState();
   const inputRef = useRef<HTMLInputElement>(null);
+  const userId = localStorage.getItem("UserId");
+  const [buttonState, setButton] = useState(false);
 
   function onDragOverHandler(event: any) {
     event.preventDefault();
   }
 
-  function setFilesOnEvent(e : any) {
+  function setFilesOnEvent(e: any) {
     e.preventDefault();
-    if(e.type === "change") {
+    if (e.type === "change") {
       setFiles(e.target.files[0]);
       console.log(e.target.files[0])
       uploadFileAsync(files)
     }
-    else 
-    {
+    else {
       // BUG HERE
       setFiles(e.dataTransfer.files[0]);
       console.log(e.dataTransfer.files[0])
@@ -26,24 +29,32 @@ const FileUploadBox = () => {
     }
   }
 
-  const uploadFileAsync = async (file : any) => {
+  const uploadFileAsync = async (file: any) => {
     const formData = new FormData();
-    console.log(file);
-    const userId = localStorage.getItem("UserId");
     formData.append("file", file);
-    console.log(formData);
 
     try {
-        const response = await postFile(formData, userId);
-        alert(response); 
+      const response = await postFile(formData, userId);
+      alert(response);
     } catch (error) {
-        alert('Error creating user. Please try again.');
+      alert('Error creating user. Please try again.');
     }
-}
-  
-function onClickHandler() {
+  }
+
+  const createCalcData = async (event : any) => {
+    setButton(true);  
+    try {
+      const response = await createCalculation(null, userId);
+      alert(response);
+    } catch (error) {
+      alert('Error creating analysis Please try again.');
+    }
+    setButton(false);
+  }
+
+  function onClickHandler() {
     inputRef.current?.click();
-}
+  }
 
   return (
     <>
@@ -54,9 +65,9 @@ function onClickHandler() {
           <input type="file" onChange={setFilesOnEvent} hidden ref={inputRef} />
           <button disabled className="selectFileButton" onClick={onClickHandler}>
             <p className="selectFileName"><strong>Select File [DISABLED]</strong></p>
-        </button>
+          </button>
         </div>
-        <button className="calculationButton">
+        <button className="calculationButton" disabled={buttonState} onClick={createCalcData}>
           <p className="submitCalculationFileName"><strong>Trigger Analysis</strong></p>
         </button>
       </div>
