@@ -6,13 +6,13 @@ import './DataUpload.css'
 function DataUpload() {
     return (
         <>
-        <div className="header-wrapper">
-            <NavBar></NavBar>
-        </div>
-        <h1 className="dropzone-header">File Upload</h1>
-        <div className="dropzone-wrapper">
-            <FileUploadBox />
-        </div>
+            <div className="header-wrapper">
+                <NavBar></NavBar>
+            </div>
+            <h1 className="dropzone-header">File Upload</h1>
+            <div className="dropzone-wrapper">
+                <FileUploadBox />
+            </div>
         </>
     )
 }

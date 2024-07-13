@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react';
 import { postFile } from '../Services/FileHandlerService.js';
 import { createCalculation } from '../Services/CalculationService.js';
-
 import './FileUploadBox.css'
 
 const FileUploadBox = () => {
