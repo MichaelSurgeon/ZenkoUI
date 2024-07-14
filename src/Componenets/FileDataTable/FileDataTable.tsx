@@ -13,7 +13,6 @@ function FileDataTable() {
         date: string;
     };
     
-    // Define your data
     const data: Data[] = React.useMemo(() => [
         {
             file_name: "10",
@@ -32,7 +31,6 @@ function FileDataTable() {
         }
     ], []);
     
-    // Define your columns
     const columns: Column<Data>[] = React.useMemo(() => [
         {
             Header: 'File Name',
@@ -48,9 +46,7 @@ function FileDataTable() {
         }
     ], []);
     
-    // Use the useTable hook
     const table = useTable<Data>({ columns, data });
-
     return(
         <>
             <div className="table-container">
