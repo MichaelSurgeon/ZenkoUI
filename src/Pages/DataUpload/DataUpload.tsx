@@ -22,6 +22,7 @@ const headers = [
 
 function DataUpload() {
 
+    // this hook is called on page load
     useEffect(() => {
         fetchData();
     })
@@ -37,7 +38,7 @@ function DataUpload() {
             </div>
             <h1 className="file-header">Previously Uploaded Files</h1>
             <div className="filedata-table">
-                {/* pass data in here */}
+                {/* pass data to file datatable */}
                 <FileDataTable/>          
             </div>
         </>
