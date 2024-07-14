@@ -2,15 +2,19 @@
     height: 5rem;
 }
 
-.dropzone-wrapper {
+.dropzone-wrapper, .filedata-table {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.dropzone-header {
+.dropzone-header, .file-header {
     color: white;
     text-align: center;
     font-size: 2rem;
     margin-top: 5rem;
+}
+
+.filedata-table {
+    margin-bottom: 4rem;
 }

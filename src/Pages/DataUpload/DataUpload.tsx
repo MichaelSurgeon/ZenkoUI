@@ -1,9 +1,31 @@
+import { useEffect } from "react";
+import FileDataTable from "../../Componenets/FileDataTable/FileDataTable";
 import FileUploadBox from "../../Componenets/FileUploadBox/FileUploadBox";
 import NavBar from "../../Componenets/NavBar/NavBar";
 import './DataUpload.css'
 
+let data : any;
+const headers = [
+    {
+        Header: "File Name",
+        Accesor: "file_name"
+    },
+    {
+        Header: "File Size",
+        Accesor: "file_size"
+    },
+    {
+        Header: "Date",
+        Accesor: "date"
+    }
+];
 
 function DataUpload() {
+
+    useEffect(() => {
+        fetchData();
+    })
+
     return (
         <>
             <div className="header-wrapper">
@@ -13,8 +35,17 @@ function DataUpload() {
             <div className="dropzone-wrapper">
                 <FileUploadBox />
             </div>
+            <h1 className="file-header">Previously Uploaded Files</h1>
+            <div className="filedata-table">
+                {/* pass data in here */}
+                <FileDataTable/>          
+            </div>
         </>
     )
+}
+
+function fetchData() {
+        // fetch data from api
 }
 
 export default DataUpload;

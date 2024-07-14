@@ -1,0 +1,35 @@
+.table-container {
+    width: 50rem;
+    background-color: white;
+    height: 15rem;
+    border-radius: 2rem;
+    -webkit-box-shadow: 10px 10px 70px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 70px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 70px 0px rgba(0,0,0,0.75);
+}
+
+table {
+    padding: 1rem;
+    width: 50rem;
+    margin: 0 auto;
+    table-layout: fixed;
+}
+
+th{
+    width: 1rem;
+    margin-right: 25px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.5rem;
+}
+
+td {
+    width: 2rem;
+    border-top: 0.1rem solid lightgray;
+    border-right: 0.1rem solid lightgray;
+    padding: 1rem;
+}
+
+th:last-child, td:last-child {
+    border-right: none;
+}
