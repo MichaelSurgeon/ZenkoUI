@@ -53,8 +53,8 @@ const FileUploadBox = () => {
         <h2 className="fileInfoOr">Or</h2>
         <div className='select-file-wrapper'>
           <input type="file" onChange={setFilesOnEvent} hidden ref={inputRef} />
-          <button className="selectFileButton" onClick={onClickHandler}>
-            <p className="selectFileName"><strong>Select File</strong></p>
+          <button disabled className="selectFileButton" onClick={onClickHandler}>
+            <p className="selectFileName"><strong>Select File [DISABLED]</strong></p>
           </button>
         </div>
         <button className="calculationButton" disabled={buttonState} onClick={createCalcData}>

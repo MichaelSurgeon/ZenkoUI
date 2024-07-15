@@ -31,7 +31,7 @@ function DataUpload() {
             <div className="dropzone-wrapper">
                 <FileUploadBox />
             </div>
-            <h1 className="file-header">Previously Uploaded Files</h1>
+            {data.length > 0 &&<h1 className="file-header">Previously Uploaded Files</h1>}
             <div className="filedata-table">
                 <div>
                     {data.length > 0 && <FileDataTable data={data} />}
