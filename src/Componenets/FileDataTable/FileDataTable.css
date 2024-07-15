@@ -1,7 +1,7 @@
 .table-container {
     width: 50rem;
     background-color: white;
-    height: 15rem;
+    height: 23rem;
     border-radius: 2rem;
     -webkit-box-shadow: 10px 10px 70px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 70px 0px rgba(0,0,0,0.75);
@@ -37,3 +37,51 @@ td {
 th:last-child, td:last-child {
     border-right: none;
 }
+
+.filedata-pagination-wrapper {
+    margin-top: 1rem;
+    float: right;
+    width: 50rem;
+    height: 5rem;
+}
+
+.filedata-previous {
+    margin-right: 1rem;
+}
+
+.filedata-previous, .filedata-nextpage {
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 15rem;
+    height: 2rem;
+    width: 8rem;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    margin-right: 1rem;
+    float: right;
+}
+
+.filedata-previous:disabled, .filedata-nextpage:disabled {
+    cursor: not-allowed;
+    background-color: lightgray;
+}
+
+.filedata-previous:not(:disabled):hover, .filedata-nextpage:not(:disabled):hover {
+  background-color: lightcoral;
+}
+
+.filedata-currentpage {
+    float: left;
+    background-color: white;
+    width: 4rem;
+    height: 2rem;
+    border-radius: 15rem;
+  }
+
+  .filedata-currentpage p {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 0.35rem;
+  }

@@ -1,18 +1,21 @@
 import { host } from '../Helpers/config.js';
 
 const baseFileUploadEndpoint = host + 'api/file/uploadFile';
-const post = 'POST';
+const baseGetFileInfoEndpoint = host + 'api/file/getFileData';
 
 export const postFile = async (body, userId) => {
     try {
         const endpoint = baseFileUploadEndpoint + `?userId=${userId}`
-        const response = await postData(endpoint, post, body);
+        const response = await postData(endpoint, body);
 
         if (response.ok) {
             return "File Uploaded"
         }
         else if (response.status === 400) {
-            return 'Something went wrong with either the file type, size or user uploading';
+            return 'Something went wrong with either the file type or size';
+        }
+        else if(response.status === 404) {
+            return 'User not found';
         }
     }
     catch {
@@ -20,10 +23,34 @@ export const postFile = async (body, userId) => {
     }
 };
 
-const postData = async (endpoint, method, body) => {
+
+export const getFileInfo = async (userId) => {
+    try {
+        const endpoint = baseGetFileInfoEndpoint + `?userId=${userId}`
+        const response = await getData(endpoint, null);
+
+        if (response.ok) {
+            return response.json();
+        }
+        else if(response.status === 404) {
+            return 'User not found';
+        }
+    }
+    catch {
+        return 'Error getting file information (possibly no file uploaded)';
+    }
+};
+
+const postData = async (endpoint,  body) => {
     return await fetch(endpoint, {
-        method: method,
+        method: "POST",
         body: body,
     });
-    ;
+}
+
+const getData = async (endpoint, body) => {
+    return await fetch(endpoint, {
+        method: "GET",
+        body: body,
+    });
 }

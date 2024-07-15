@@ -1,31 +1,26 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import FileDataTable from "../../Componenets/FileDataTable/FileDataTable";
 import FileUploadBox from "../../Componenets/FileUploadBox/FileUploadBox";
+import { getFileInfo } from "../../Componenets/Services/FileHandlerService.js"
 import NavBar from "../../Componenets/NavBar/NavBar";
 import './DataUpload.css'
 
-let data : any;
-const headers = [
-    {
-        Header: "File Name",
-        Accesor: "file_name"
-    },
-    {
-        Header: "File Size",
-        Accesor: "file_size"
-    },
-    {
-        Header: "Date",
-        Accesor: "date"
-    }
-];
-
 function DataUpload() {
+    const [data, setData] = useState([])
 
-    // this hook is called on page load
     useEffect(() => {
-        fetchData();
-    })
+        async function fetchDataFromApi() {
+          try {
+            const response = await getFileInfo(localStorage.getItem("UserId"));
+            setData(response);
+          } catch (error) {
+            console.error(error);
+            alert("error fetching file information");
+          }
+        }
+
+        fetchDataFromApi();
+      }, []);
 
     return (
         <>
@@ -38,15 +33,12 @@ function DataUpload() {
             </div>
             <h1 className="file-header">Previously Uploaded Files</h1>
             <div className="filedata-table">
-                {/* pass data to file datatable */}
-                <FileDataTable/>          
+                <div>
+                    {data.length > 0 && <FileDataTable data={data} />}
+                </div>
             </div>
         </>
     )
-}
-
-function fetchData() {
-        // fetch data from api
 }
 
 export default DataUpload;

@@ -1,58 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 import "./FileDataTable.css";
-import { useTable, Column } from "react-table";
+import { useTable, Column, usePagination } from "react-table";
 
-function FileDataTable() {
+type Data = {
+    fileName: string;
+    fileSize: string;
+    fileDate: string;
+  };
 
-    // const dat = useMemo(() => data, []);
-    // const cols = useMemo(() => columns, []);
-
-    type Data = {
-        file_name: string;
-        file_size: number;
-        date: string;
-    };
-    
-    const data: Data[] = React.useMemo(() => [
-        {
-            file_name: "10",
-            file_size: 15,
-            date: "test"
-        },
-        {
-            file_name: "10",
-            file_size: 15,
-            date: "test"
-        },
-        {
-            file_name: "10",
-            file_size: 15,
-            date: "test"
+function FileDataTable(data : any) {
+    const [pageNo, setPageNo] = useState(1);
+    const memoizedMappedData = React.useMemo(() => {
+        if (Array.isArray(data.data)) {
+          return data.data.map((item: Data) => ({ ...item }));
+        } else {
+          return [];
         }
-    ], []);
-    
+      }, [data]);
+
     const columns: Column<Data>[] = React.useMemo(() => [
         {
             Header: 'File Name',
-            accessor: 'file_name'
+            accessor: 'fileName'
         },
         {
             Header: 'File Size(KB)',
-            accessor: 'file_size'
+            accessor: 'fileSize'
         },
         {
             Header: 'Date',
-            accessor: 'date'
+            accessor: 'fileDate'
         }
     ], []);
-    
-    const table = useTable<Data>({ columns, data });
+
+    const {
+        getTableProps,
+        getTableBodyProps,
+        headerGroups,
+        page,
+        prepareRow,
+        nextPage,
+        previousPage,
+        canNextPage,
+        canPreviousPage
+    } = useTable(
+        {
+            columns : columns,
+            data : memoizedMappedData,
+            initialState: { pageSize: 5 }
+        },
+        usePagination
+    )
+
     return(
         <>
             <div className="table-container">
-                <table  {... table.getTableProps()}>
+                <table  {...getTableProps()}>
                     <thead>
-                        {table.headerGroups.map(( hg ) => (
+                        {headerGroups.map(( hg ) => (
                             <tr {...hg.getHeaderGroupProps()}>
                                 {hg.headers.map((col) => (
                                     <th {...col.getHeaderProps()}>
@@ -60,11 +65,11 @@ function FileDataTable() {
                                     </th>
                                 ))}
                             </tr>
-                        ))} 
+                        ))}
                     </thead>
-                    <tbody {...table.getTableBodyProps()}>
-                        {table.rows.map((row) => {
-                            table.prepareRow(row)
+                    <tbody {...getTableBodyProps()}>
+                        {page.map((row) => {
+                            prepareRow(row)
                             return (
                                 <tr {...row.getRowProps()}>
                                     {row.cells.map((cell) => (
@@ -78,6 +83,31 @@ function FileDataTable() {
                     </tbody>
                 </table>
             </div>
+            <div className="filedata-pagination-wrapper">
+        <div className="filedata-currentpage">
+          <p>{pageNo}</p>
+        </div>
+        <button
+          className="filedata-nextpage"
+          onClick={() => {
+            nextPage();
+            setPageNo(pageNo + 1);
+          }}
+          disabled={!canNextPage}
+        >
+          Next
+        </button>
+        <button
+          className="filedata-previous"
+          onClick={() => {
+            previousPage();
+            setPageNo(pageNo - 1);
+          }}
+          disabled={!canPreviousPage}
+        >
+          Previous
+        </button>
+      </div>
         </>
     )
 }
