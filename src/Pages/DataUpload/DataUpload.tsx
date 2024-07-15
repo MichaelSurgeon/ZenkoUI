@@ -9,6 +9,7 @@ function DataUpload() {
     const [data, setData] = useState([])
 
     useEffect(() => {
+      // issue here its getting called all the time
         async function fetchDataFromApi() {
           try {
             const response = await getFileInfo(localStorage.getItem("UserId"));

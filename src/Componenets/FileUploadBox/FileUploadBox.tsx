@@ -17,6 +17,7 @@ const FileUploadBox = () => {
     const selectedFile = e.type === "change" ? e.target.files[0] : e.dataTransfer.files[0];
     console.log(selectedFile);
     await uploadFileAsync(selectedFile);
+    window.location.reload();
 }
 
   const uploadFileAsync = async (file: any) => {
