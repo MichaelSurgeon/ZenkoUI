@@ -14,9 +14,9 @@ function SignUp() {
                 <div className="content-left-sign-up">
                     <SignUpCard/>
                 </div>
-                <div className="content-right">
-                    <h1>Zenko</h1>
-                    <h2>Gain control of your spending through financial insights.</h2>
+                <div className="content-right-signup">
+                    <h1 className="content-right-heading">Zenko</h1>
+                    <h2 className="content-right-text">Gain control of your spending through financial insights.</h2>
                 </div>
             </div>
         </>
