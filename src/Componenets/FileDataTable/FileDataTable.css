@@ -74,7 +74,7 @@ th:last-child, td:last-child {
 .filedata-currentpage {
     float: left;
     background-color: white;
-    width: 4rem;
+    width: 5rem;
     height: 2rem;
     border-radius: 15rem;
   }

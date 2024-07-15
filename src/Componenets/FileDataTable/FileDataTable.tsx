@@ -85,7 +85,7 @@ function FileDataTable(data : any) {
             </div>
             <div className="filedata-pagination-wrapper">
         <div className="filedata-currentpage">
-          <p>{pageNo}</p>
+          <p>{"Page: " + pageNo}</p>
         </div>
         <button
           className="filedata-nextpage"
