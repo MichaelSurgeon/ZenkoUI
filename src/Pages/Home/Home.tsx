@@ -45,6 +45,7 @@ function Home() {
     async function fetchTransactionData() {
         try {
             const response = await getTransactionData(userId) as Transaction;
+            console.log(response)
             setTransactionData(response)
         } catch (error) {
             console.log(error);

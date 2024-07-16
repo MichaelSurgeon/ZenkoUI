@@ -41,7 +41,7 @@ export const getAgregattedTransactions = async (userId) => {
 
 export const getTransactionData = async (userId) => {
     try {
-        const endpoint = baseTransactionsEndpoint + `?userId=${userId}`
+        const endpoint = baseTransactionsEndpoint + `?userId=${userId}&pageNumber=2&pageSize=10`
         const response = await getData(endpoint);
 
         if (response.ok) {
