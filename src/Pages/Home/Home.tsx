@@ -65,7 +65,7 @@ function Home() {
             <KpiCard header="Rating"/>
         </div>
         <div className="transaction-home-data-table-container">
-            <h1 className="transaction-home-data-table-header">Transactions</h1>
+            <h2 className="transaction-home-data-table-header">Transactions</h2>
             <TransactionDataTable />
         </div>
         </>
