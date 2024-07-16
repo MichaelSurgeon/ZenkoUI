@@ -9,3 +9,11 @@
     flex-wrap: wrap;
     margin: 0 auto;
 }
+
+.transaction-home-data-table-header {
+    color: white;
+    text-align: left;
+    margin-top: 5rem;
+    margin-left: 11rem;
+    margin-bottom: 0.5rem;
+}
