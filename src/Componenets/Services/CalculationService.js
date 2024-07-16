@@ -24,7 +24,7 @@ export const createCalculation = async (body, userId) => {
 
 export const getAgregattedTransactions = async (userId) => {
     try {
-        const endpoint = baseTransactionsEndpoint + `?userId=${userId}`
+        const endpoint = baseAggregatedTransactionsEndpoint + `?userId=${userId}`
         const response = await getData(endpoint);
 
         if (response.ok) {
@@ -41,7 +41,7 @@ export const getAgregattedTransactions = async (userId) => {
 
 export const getTransactionData = async (userId) => {
     try {
-        const endpoint = baseAggregatedTransactionsEndpoint + `?userId=${userId}`
+        const endpoint = baseTransactionsEndpoint + `?userId=${userId}`
         const response = await getData(endpoint);
 
         if (response.ok) {
