@@ -2,6 +2,8 @@ import { host } from '../Helpers/config.js';
 
 const baseCreateCalculationEndpoint = host + 'api/calculations/createCalculation';
 const baseAggregatedTransactionsEndpoint = host + 'api/transactions/GetAggregatedTransactionInfo';
+const baseTransactionsEndpoint = host + 'api/transactions/GetPaginatedTransactions';
+
 
 export const createCalculation = async (body, userId) => {
     try {
@@ -21,6 +23,23 @@ export const createCalculation = async (body, userId) => {
 };
 
 export const getAgregattedTransactions = async (userId) => {
+    try {
+        const endpoint = baseTransactionsEndpoint + `?userId=${userId}`
+        const response = await getData(endpoint);
+
+        if (response.ok) {
+            return response.json();
+        }
+        else if (response.status === 404) {
+            return 'No user or transactions found';
+        }
+    }
+    catch {
+        return 'error getting transactions';
+    }
+};
+
+export const getTransactionData = async (userId) => {
     try {
         const endpoint = baseAggregatedTransactionsEndpoint + `?userId=${userId}`
         const response = await getData(endpoint);

@@ -1,0 +1,37 @@
+.table-container-transactions {
+    background-color: white;
+    width: 90rem;
+    height: 25rem;
+    margin: 0 auto;
+    border-radius: 3rem;
+}
+
+.transactions-table {
+    width: 90rem; 
+}
+
+.transaction-home-data-table-header {
+    color: white;
+    margin-top: 5rem;
+}
+
+.transactions-table-th {
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    vertical-align: middle;
+    padding: 1.5rem;
+}
+
+.transactions-table-td {
+    font-weight: 600;
+    font-size: 1.1rem;
+    width: 2rem;
+    border-top: 0.15rem solid lightgray;
+    border-right: 0.15rem solid lightgray;
+    padding: 1rem;
+}
+
+.transactions-table-td:last-child, td:last-child {
+    border-right: none;
+}

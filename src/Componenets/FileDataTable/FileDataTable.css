@@ -8,14 +8,14 @@
     box-shadow: 10px 10px 70px 0px rgba(0,0,0,0.75);
 }
 
-table {
+.file-data-table {
     padding: 1rem;
     width: 50rem;
     margin: 0 auto;
     table-layout: fixed;
 }
 
-th{
+.file-data-th {
     font-weight: 600;
     font-size: 1.1rem;
     width: 1rem;
@@ -25,7 +25,7 @@ th{
     padding: 0.5rem;
 }
 
-td {
+.file-data-td {
     font-weight: 600;
     font-size: 1.1rem;
     width: 2rem;
@@ -34,7 +34,7 @@ td {
     padding: 1rem;
 }
 
-th:last-child, td:last-child {
+.file-data-th:last-child, td:last-child {
     border-right: none;
 }
 
