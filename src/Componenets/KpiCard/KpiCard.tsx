@@ -1,6 +1,6 @@
 import './KpiCard.css'
 
-const KpiCard = (props : any, data: any) => {
+const KpiCard = (props : any) => {
     return (
         <>
             <div className='kpi-card'>

@@ -1,21 +1,30 @@
-import React, { useState } from "react";
 import "./TransactionDataTable.css";
-import { useTable, Column, usePagination } from "react-table";
+import React, { useEffect, useState } from "react";
+import { useTable, Column, usePagination, CellProps } from "react-table";
+import { getTransactionData } from "../../Componenets/Services/CalculationService.js";
 
 type Transaction = {
     name: string;
     amount: string;
     location: string;
-    date: string;
     category: string;
+    date: string;
   };
 
-function TransactionDataTable(data : any) {
-    const memoizedMappedData = React.useMemo(() => {
+const userId = localStorage.getItem("UserId");
+
+function TransactionDataTable(data: any, pageCount: any) {
+    const [currentPage, setCurrentPage] = useState(1);
+    const [pageData, setPageData] = useState([]);
+    const [pageNo, setPageNo] = useState(1);
+    const totalPageCount = pageCount;
+    console.log(pageCount);
+    
+    React.useEffect(() => {
         if (Array.isArray(data.data)) {
-          return data.data.map((item: Transaction) => ({ ...item }));
+          setPageData(data.data.map((transaction: Transaction) => ({ ...transaction })));
         } else {
-          return [];
+          setPageData([]);
         }
       }, [data]);
 
@@ -26,7 +35,8 @@ function TransactionDataTable(data : any) {
         },
         {
             Header: 'Amount',
-            accessor: 'amount'
+            accessor: 'amount',
+            Cell: ({ value }: CellProps<Transaction, string>) => <span>{formatMoney(value)}</span>
         },
         {
             Header: 'Location',
@@ -46,14 +56,41 @@ function TransactionDataTable(data : any) {
         getTableProps,
         getTableBodyProps,
         headerGroups,
-        rows,
+        page,
         prepareRow,
     } = useTable(
         {
             columns : columns,
-            data : memoizedMappedData,
-        }
+            data : pageData,
+            manualPagination: true,
+            initialState: {
+                pageSize: 10
+            }
+        },
+        usePagination
     )
+
+
+    // fetch on next page click
+    useEffect(() => {
+        const fetchData = async (page: number) => {
+            const response = await getTransactionData(userId, currentPage)
+            setPageData(response.transactions);
+            console.log(response);
+        }
+
+        fetchData(currentPage);
+    }, [currentPage])
+
+
+    const formatMoney = (value: any) => {
+        if (value) {
+          return `£` + value;
+        }
+    };
+
+    const canPrevious = currentPage > 1;
+    const canNext = currentPage < totalPageCount;
 
     return(
         <>
@@ -71,7 +108,7 @@ function TransactionDataTable(data : any) {
                         ))}
                     </thead>
                     <tbody {...getTableBodyProps()}>
-                        {rows.map((row) => {
+                        {page.map((row) => {
                             prepareRow(row)
                             return (
                                 <tr {...row.getRowProps()}>
@@ -85,6 +122,13 @@ function TransactionDataTable(data : any) {
                         })}
                     </tbody>
                 </table>
+            </div>
+            <div className="transaction-table-pagination-container">
+                    <div className="transaction-table-pagination-currentpage">
+                        <p>{'Page: ' + pageNo}</p>
+                    </div>
+                    <button className="transaction-table-pagination-next" onClick={() => {setCurrentPage(currentPage + 1); setPageNo(pageNo + 1)}}>Next Page</button>
+                    <button className="transaction-table-pagination-previous" onClick={() => {setCurrentPage(currentPage - 1); setPageNo(pageNo - 1)}} disabled={!canPrevious}>Previous Page</button>
             </div>
         </>
     )
