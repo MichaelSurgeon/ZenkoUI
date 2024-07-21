@@ -25,8 +25,7 @@ function Home() {
     useEffect(() => {
         fetchAggregatedData();
         fetchTransactionData();
-    }, [])
-
+    }, []);
 
     async function fetchAggregatedData() {
         try {
