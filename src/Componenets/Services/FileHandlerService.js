@@ -9,7 +9,7 @@ export const postFile = async (body, userId) => {
         const response = await postData(endpoint, body);
 
         if (response.ok) {
-            return "File Uploaded"
+            return "File Uploaded, please trigger analysis"
         }
         else if (response.status === 400) {
             return 'Something went wrong with either the file type or size';

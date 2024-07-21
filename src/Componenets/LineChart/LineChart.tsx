@@ -6,8 +6,7 @@ import {
     CategoryScale,
     LinearScale,
     PointElement,
-    Tooltip,
-    Legend
+    Tooltip
 } from 'chart.js';
 import { useState, useEffect } from 'react';
 
@@ -16,8 +15,7 @@ ChartJS.register(
     CategoryScale,
     LinearScale,
     PointElement,
-    Tooltip,
-    Legend
+    Tooltip
 );
 
 ChartJS.defaults.font.weight = 'bold';
@@ -38,9 +36,8 @@ const LineChart = (data : any) => {
     const dat = {
         labels: labels,
         datasets: [{
-            label: 'Daily Spend',  // Added label for the dataset
+            label: 'Daily Spend', 
             data: mappedData,
-            backgroundColor: 'rgba(24, 160, 251, 0.2)', // Changed to rgba for visibility
             borderColor: '#18A0FB',
             borderWidth: 3,
             pointRadius: 8,
@@ -72,7 +69,7 @@ const LineChart = (data : any) => {
                 enabled: true,
                 callbacks: {
                     label: function(tooltipItem: any) {
-                        return `Total Spent: £${tooltipItem.raw}`;
+                        return `Spent: £${tooltipItem.raw}`;
                     }
                 }
             }
