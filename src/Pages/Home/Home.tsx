@@ -32,6 +32,7 @@ function Home() {
     const [transactionData, setTransactionData] = useState<TransactionResponse>();
     const [transactionByDateData, setTransactionByDateData] = useState<TransactionByDateResponse>();
     const [isBusy, setBusyState] = useState(true);
+    let test = 0;
 
     useEffect(() => {
         async function getData() {
@@ -94,7 +95,7 @@ function Home() {
                     </div>
                     <div className="transaction-home-data-table-container">
                         <h2 className="transaction-home-data-table-header">Transactions</h2>
-                        <TransactionDataTable data={transactionData?.transactions} pageCount={transactionData?.totalPages} />
+                        <TransactionDataTable data={transactionData}/>
                     </div>
                 </div>
             )}

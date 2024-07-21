@@ -13,15 +13,15 @@ type Transaction = {
 
 const userId = localStorage.getItem("UserId");
 
-function TransactionDataTable(data: any, pageCount: any) {
+function TransactionDataTable(data : any) {
     const [currentPage, setCurrentPage] = useState(1);
     const [pageData, setPageData] = useState([]);
     const [pageNo, setPageNo] = useState(1);
-    const totalPageCount = pageCount;
+    let totalPageCount = data.data.totalPages;
     
     React.useEffect(() => {
-        if (Array.isArray(data.data)) {
-          setPageData(data.data.map((transaction: Transaction) => ({ ...transaction })));
+        if (Array.isArray(data.data.transactions)) {
+          setPageData(data.data.transactions.map((transaction: Transaction) => ({ ...transaction })));
         } else {
           setPageData([]);
         }
@@ -124,7 +124,7 @@ function TransactionDataTable(data: any, pageCount: any) {
                     <div className="transaction-table-pagination-currentpage">
                         <p>{'Page: ' + pageNo}</p>
                     </div>
-                    <button className="transaction-table-pagination-next" onClick={() => {setCurrentPage(currentPage + 1); setPageNo(pageNo + 1)}}>Next Page</button>
+                    <button className="transaction-table-pagination-next" onClick={() => {setCurrentPage(currentPage + 1); setPageNo(pageNo + 1)}} disabled={!canNext}>Next Page</button>
                     <button className="transaction-table-pagination-previous" onClick={() => {setCurrentPage(currentPage - 1); setPageNo(pageNo - 1)}} disabled={!canPrevious}>Previous Page</button>
             </div>
         </>
