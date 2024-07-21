@@ -18,7 +18,6 @@ function TransactionDataTable(data: any, pageCount: any) {
     const [pageData, setPageData] = useState([]);
     const [pageNo, setPageNo] = useState(1);
     const totalPageCount = pageCount;
-    console.log(pageCount);
     
     React.useEffect(() => {
         if (Array.isArray(data.data)) {
@@ -70,13 +69,11 @@ function TransactionDataTable(data: any, pageCount: any) {
         usePagination
     )
 
-
     // fetch on next page click
     useEffect(() => {
         const fetchData = async (page: number) => {
             const response = await getTransactionData(userId, currentPage)
             setPageData(response.transactions);
-            console.log(response);
         }
 
         fetchData(currentPage);

@@ -1,0 +1,12 @@
+.line-graph-container {
+    width: 85rem;
+    height: 30rem;
+    background-color: white;
+    margin: 0 auto;
+    padding: 3rem;
+    border-radius: 3rem;
+    -webkit-box-shadow: 10px 10px 70px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 70px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 70px 0px rgba(0,0,0,0.75);
+}
+

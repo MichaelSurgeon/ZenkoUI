@@ -3,7 +3,7 @@ import { host } from '../Helpers/config.js';
 const baseCreateCalculationEndpoint = host + 'api/calculations/createCalculation';
 const baseAggregatedTransactionsEndpoint = host + 'api/transactions/GetAggregatedTransactionInfo';
 const baseTransactionsEndpoint = host + 'api/transactions/GetPaginatedTransactions';
-
+const baseAllTransactionsEndpoint = host + 'api/transactions/GetAllTransactionsByDate';
 
 export const createCalculation = async (body, userId) => {
     try {
@@ -52,7 +52,24 @@ export const getTransactionData = async (userId, pageId) => {
         }
     }
     catch {
-        return 'error getting aggregatted information';
+        return 'error getting pagintated transactions information';
+    }
+};
+
+export const getAllTransactionByDateData = async (userId) => {
+    try {
+        const endpoint = baseAllTransactionsEndpoint + `?userId=${userId}`
+        const response = await getData(endpoint);
+
+        if (response.ok) {
+            return response.json();
+        }
+        else if (response.status === 404) {
+            return 'User or Transaction data was not found, please upload a file';
+        }
+    }
+    catch {
+        return 'error getting transactions by date information';
     }
 };
 

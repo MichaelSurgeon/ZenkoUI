@@ -1,5 +1,9 @@
 .wrapper {
-    height: 10rem;
+    height: 5rem;
+}
+
+.home-nav-bar {
+    height: 8rem;
 }
 
 .kpi-home-card-container {

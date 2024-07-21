@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import KpiCard from "../../Componenets/KpiCard/KpiCard";
 import NavBar from "../../Componenets/NavBar/NavBar";
-import { getAgregattedTransactions, getTransactionData } from "../../Componenets/Services/CalculationService.js"
+import { getAgregattedTransactions, getAllTransactionByDateData, getTransactionData } from "../../Componenets/Services/CalculationService.js"
 import "./Home.css"
 import TransactionDataTable from "../../Componenets/TransactionDataTable/TransactionDataTable";
+import LineChart from "../../Componenets/LineChart/LineChart";
 
 type AggregatedData = {
     totalSpend: number
@@ -16,15 +17,30 @@ type TransactionResponse = {
     transactions: any
 };
 
+type TransactionByDateResponse = {
+    name: string
+    amount: string,
+    location: string,
+    date: string,
+    category: string
+};
+
 const userId = localStorage.getItem("UserId");
 
 function Home() {
     const [aggregatedData, setAggregatedData] = useState<AggregatedData>();
     const [transactionData, setTransactionData] = useState<TransactionResponse>();
+    const [transactionByDateData, setTransactionByDateData] = useState<TransactionByDateResponse>();
+    const [isBusy, setBusyState] = useState(true);
 
     useEffect(() => {
-        fetchAggregatedData();
-        fetchTransactionData();
+        async function getData() {
+            await fetchOrderedTransactionData();
+            await fetchAggregatedData();
+            await fetchTransactionData();
+            setBusyState(false);
+        }
+        getData();
     }, []);
 
     async function fetchAggregatedData() {
@@ -41,29 +57,47 @@ function Home() {
         try {
             const response = await getTransactionData(userId, null) as TransactionResponse;
             setTransactionData(response)
-            console.log(response.totalPages);
-            console.log(transactionData?.totalPages)
         } catch (error) {
             console.log(error);
-            alert("error fetching file information");
+            alert("error fetching transaction information");
+        }
+    }
+
+    async function fetchOrderedTransactionData() {
+        try {
+            const response = await getAllTransactionByDateData(userId) as TransactionByDateResponse;
+            setTransactionByDateData(response)
+        } catch (error) {
+            console.log(error);
+            alert("error fetching transaction information");
         }
     }
 
     return (
         <>
-            <div className="wrapper">
-                <NavBar/>
-            </div>
-            <div className="kpi-home-card-container">
-                <KpiCard header="Total Spend" data={aggregatedData?.totalSpend != null ? "£" + aggregatedData?.totalSpend : "N/A"}/>
-                <KpiCard header="Transactions" data={aggregatedData?.transactionCount}/>
-                <KpiCard header="Most Common" data={aggregatedData?.mostCommonCategory}/>
-                <KpiCard header="Rating"/>
-            </div>
-            <div className="transaction-home-data-table-container">
-                <h2 className="transaction-home-data-table-header">Transactions</h2>
-                <TransactionDataTable data={transactionData?.transactions} pageCount={transactionData?.totalPages} />
-            </div>
+            {isBusy ? (
+                <div className="loading">Loading...</div>
+            ) : (
+                <div className="wrapper">
+                    <div className="home-nav-bar">
+                        <NavBar/>
+                    </div>
+                    <div className="kpi-home-card-container">
+                        <KpiCard header="Total Spend" data={aggregatedData?.totalSpend != null ? "£" + aggregatedData?.totalSpend : "N/A"}/>
+                        <KpiCard header="Transactions" data={aggregatedData?.transactionCount}/>
+                        <KpiCard header="Most Common" data={aggregatedData?.mostCommonCategory}/>
+                        <KpiCard header="Rating"/>
+                    </div>
+                    <div className="home-line-graph">
+                        <h2 className="transaction-home-data-table-header">Spend Per Day</h2>
+                        <LineChart data={transactionByDateData}/>
+                    </div>
+                    <div className="transaction-home-data-table-container">
+                        <h2 className="transaction-home-data-table-header">Transactions</h2>
+                        <TransactionDataTable data={transactionData?.transactions} pageCount={transactionData?.totalPages} />
+                    </div>
+                </div>
+            )}
         </>
     )
 }
