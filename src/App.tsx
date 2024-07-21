@@ -4,6 +4,7 @@ import SignUp from './Pages/SignUp/SignUp';
 import SignIn from './Pages/SignIn/SignIn';
 import Home from './Pages/Home/Home';
 import DataUpload from './Pages/DataUpload/DataUpload';
+import Categories from './Pages/Categories/Categories';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/SignUp" element={<SignUp />} />
             <Route path="/SignIn" element={<SignIn />} />
             <Route path="/DataUpload" element={<DataUpload />} />
+            <Route path="/Categories" element={<Categories />} />
           </Routes>
         </div>
       </div>

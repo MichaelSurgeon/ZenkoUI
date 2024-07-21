@@ -1,6 +1,7 @@
 import { host } from '../Helpers/config.js';
 
 const baseCreateCalculationEndpoint = host + 'api/calculations/createCalculation';
+const baseGetCalculatedCategoriesEndpoint = host + 'api/calculations/getCalculatedCategories';
 const baseAggregatedTransactionsEndpoint = host + 'api/transactions/GetAggregatedTransactionInfo';
 const baseTransactionsEndpoint = host + 'api/transactions/GetPaginatedTransactions';
 const baseAllTransactionsEndpoint = host + 'api/transactions/GetAllTransactionsByDate';
@@ -70,6 +71,23 @@ export const getAllTransactionByDateData = async (userId) => {
     }
     catch {
         return 'error getting transactions by date information';
+    }
+};
+
+export const getCalcualtedCategoriesData = async (userId) => {
+    try {
+        const endpoint = baseGetCalculatedCategoriesEndpoint + `?userId=${userId}`
+        const response = await getData(endpoint);
+
+        if (response.ok) {
+            return response.json();
+        }
+        else if (response.status === 404) {
+            return 'User or category data was not found, please upload a file';
+        }
+    }
+    catch {
+        return 'error getting category information';
     }
 };
 

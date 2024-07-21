@@ -1,0 +1,16 @@
+.categories-nav-wrapper{
+    height: 6rem;
+}
+
+.categories-h1 {
+    color: white;
+}
+
+.categories-cards {
+    margin-left: 5.5rem;
+    width: 100rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1rem; 
+    gap: 5rem;
+}

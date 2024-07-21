@@ -22,10 +22,12 @@ a {
 .nav-item-logo a{
     font-size: 35px;
     color: white;
+    font-weight: 650;
 }
 
 .nav-item a {
     font-size: 18px;
+    font-weight: 650;
 }
 
 .nav-item a:hover, .nav-item-logo a:hover{
