@@ -47,7 +47,8 @@ function TransactionDataTable(data : any) {
         },
         {
             Header: 'Category',
-            accessor: 'category'
+            accessor: 'category',
+            Cell: ({ value }: CellProps<Transaction, string>) => <div className="category-cell-style" style={{backgroundColor: getCategoryColor({value})}}><p>{value}</p></div>
         }
     ], []);
 
@@ -82,6 +83,22 @@ function TransactionDataTable(data : any) {
         if (value) {
           return `£` + value;
         }
+    };
+
+    const categoryColours: Record<string, string> = {
+        "Eating Out": "#EDAE49",
+        "Bills": "#AAB2FF",
+        "Entertainment": "#427AA1",
+        "Transport": "#264653",
+        "Shopping": "#E04084",
+        "Groceries": "#3DABFA",
+        "General": "#8ECE3D",
+        "Subscriptions": "#DF4A4A",
+        "Debt": "#597BD3",
+    }
+
+    const getCategoryColor = (value: any) => {
+        return categoryColours[value.value];
     };
 
     const canPrevious = currentPage > 1;

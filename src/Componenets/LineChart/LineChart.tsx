@@ -39,7 +39,7 @@ const LineChart = (data : any) => {
             label: 'Daily Spend', 
             data: mappedData,
             borderColor: '#18A0FB',
-            borderWidth: 3,
+            borderWidth: 2,
             pointRadius: 8,
             pointHoverRadius: 10,
             pointHoverBorderWidth: 4,
