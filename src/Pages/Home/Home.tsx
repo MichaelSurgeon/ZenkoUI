@@ -75,13 +75,13 @@ function Home() {
 
     return (
         <>
+            <div className="home-nav-bar">
+                <NavBar/>
+            </div>
             {isBusy ? (
                 <div className="loading">Loading...</div>
             ) : (
                 <div className="wrapper">
-                    <div className="home-nav-bar">
-                        <NavBar/>
-                    </div>
                     <div className="kpi-home-card-container">
                         <KpiCard header="Total Spend" data={aggregatedData?.totalSpend != null ? "£" + aggregatedData?.totalSpend : "N/A"}/>
                         <KpiCard header="Transactions" data={aggregatedData?.transactionCount}/>

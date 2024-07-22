@@ -23,6 +23,8 @@ function DataUpload() {
         fetchDataFromApi();
       }, []);
 
+      console.log(data);
+
     return (
         <>
             <div className="header-wrapper">
@@ -32,10 +34,10 @@ function DataUpload() {
             <div className="dropzone-wrapper">
                 <FileUploadBox />
             </div>
-            {data.length > 0 &&<h1 className="file-header">Previously Uploaded Files</h1>}
+            {Array.isArray(data) && data.length > 0 && <h1 className="file-header">Previously Uploaded Files</h1>}
             <div className="filedata-table">
                 <div>
-                    {data.length > 0 && <FileDataTable data={data} />}
+                    {Array.isArray(data) && data.length > 0 && <FileDataTable data={data} />}
                 </div>
             </div>
         </>

@@ -37,15 +37,19 @@ function Categories() {
     return (
         <>
             <div className="categories-nav-wrapper">
-                <NavBar></NavBar>
+                    <NavBar />
             </div>
             <h1 className="categories-h1">Data Split By Category</h1>
             <div className="categories-cards-container">
-                <div className="categories-cards">
-                    {calculatedCategoriesData?.map((data, index) => (
-                            <CategoryCard data={data} />
-                    ))}
-                </div>
+                {Array.isArray(calculatedCategoriesData) && calculatedCategoriesData.length > 0 ? (
+                    <div className="categories-cards">
+                        {calculatedCategoriesData.map((data, index) => (
+                            <CategoryCard key={index} data={data} />
+                        ))}
+                    </div>
+                ) : (
+                    <p>No categories available.</p>
+                )}
             </div>
         </>
     )
