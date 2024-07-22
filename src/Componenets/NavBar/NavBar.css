@@ -30,6 +30,11 @@ a {
     font-weight: 650;
 }
 
-.nav-item a:hover, .nav-item-logo a:hover{
+.nav-item-signout a {
+    font-weight: 650;
+    font-size: 18px;
+}
+
+.nav-item a:hover, .nav-item-logo a:hover, .nav-item-signout a:hover {
     color: lightgray;
 }

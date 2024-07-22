@@ -6,6 +6,7 @@ import Home from './Pages/Home/Home';
 import DataUpload from './Pages/DataUpload/DataUpload';
 import Categories from './Pages/Categories/Categories';
 import Account from './Pages/Account/Account';
+import SignOut from './Pages/SignOut/SignOut';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/DataUpload" element={<DataUpload />} />
             <Route path="/Categories" element={<Categories />} />
             <Route path="/Account" element={<Account />} />
+            <Route path="/SignOut" element={<SignOut />} />
           </Routes>
         </div>
       </div>
