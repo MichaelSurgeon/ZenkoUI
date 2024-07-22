@@ -6,8 +6,17 @@
   color: white;
 }
 
-.categories-cards-container {
+.categories-kpi-cards {
+    display: flex;
+    justify-content: space-between;
+    width: 55%;
+    flex-wrap: wrap;
     margin: 0 auto;
+    margin-bottom: 5rem;
+}
+
+.categories-cards-container {
+    margin-bottom: 5rem;
 }
 
 .categories-cards {

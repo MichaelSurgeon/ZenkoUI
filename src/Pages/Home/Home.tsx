@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import KpiCard from "../../Componenets/KpiCard/KpiCard";
 import NavBar from "../../Componenets/NavBar/NavBar";
-import { getAgregattedTransactions, getAllTransactionByDateData, getTransactionData } from "../../Componenets/Services/CalculationService.js"
+import { getAgregattedTransactions, getAllTransactionByDateData, getBudgetSplitData, getTransactionData } from "../../Componenets/Services/CalculationService.js"
 import "./Home.css"
 import TransactionDataTable from "../../Componenets/TransactionDataTable/TransactionDataTable";
 import LineChart from "../../Componenets/LineChart/LineChart";
