@@ -1,16 +1,19 @@
-.categories-nav-wrapper{
-    height: 6rem;
+.categories-nav-wrapper {
+  height: 6rem;
 }
 
 .categories-h1 {
-    color: white;
+  color: white;
+}
+
+.categories-cards-container {
+    margin: 0 auto;
 }
 
 .categories-cards {
-    margin-left: 5.5rem;
-    width: 100rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding: 1rem; 
-    gap: 5rem;
-}
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7rem;
+    justify-content: center;
+    align-items: center;
+  }

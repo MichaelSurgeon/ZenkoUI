@@ -40,10 +40,12 @@ function Categories() {
                 <NavBar></NavBar>
             </div>
             <h1 className="categories-h1">Data Split By Category</h1>
-            <div className="categories-cards">
-                {calculatedCategoriesData?.map((data, index) => (
-                        <CategoryCard data={data} />
-                ))}
+            <div className="categories-cards-container">
+                <div className="categories-cards">
+                    {calculatedCategoriesData?.map((data, index) => (
+                            <CategoryCard data={data} />
+                    ))}
+                </div>
             </div>
         </>
     )
