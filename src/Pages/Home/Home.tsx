@@ -91,7 +91,7 @@ function Home() {
                     {Array.isArray(transactionByDateData) &&
                     <>
                         <div className="home-line-graph">
-                            <h2 className="transaction-home-data-table-header">Spend Per Day (Month) </h2>
+                            <h2 className="transaction-home-data-table-header">Spend Per Day (£)</h2>
                             <LineChart data={transactionByDateData}/>
                         </div>
                     </>
