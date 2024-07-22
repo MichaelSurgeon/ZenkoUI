@@ -14,10 +14,19 @@
     margin: 0 auto;
 }
 
+.home-line-graph {
+    width: 85rem;
+    margin: 0 auto;
+}
+
+.transaction-home-data-table-container {
+    width: 85rem;
+    margin: 0 auto;
+}
+
 .transaction-home-data-table-header {
     color: white;
     text-align: left;
     margin-top: 5rem;
-    margin-left: 15rem;
     margin-bottom: 0.5rem;
 }
