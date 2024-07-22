@@ -18,7 +18,7 @@ function TransactionDataTable(data : any) {
     const [pageData, setPageData] = useState([]);
     const [pageNo, setPageNo] = useState(1);
     let totalPageCount = data.data.totalPages;
-    
+
     React.useEffect(() => {
         if (Array.isArray(data.data.transactions)) {
           setPageData(data.data.transactions.map((transaction: Transaction) => ({ ...transaction })));
@@ -69,7 +69,6 @@ function TransactionDataTable(data : any) {
         usePagination
     )
 
-    // fetch on next page click
     useEffect(() => {
         const fetchData = async (page: number) => {
             const response = await getTransactionData(userId, currentPage)
@@ -78,7 +77,6 @@ function TransactionDataTable(data : any) {
 
         fetchData(currentPage);
     }, [currentPage])
-
 
     const formatMoney = (value: any) => {
         if (value) {

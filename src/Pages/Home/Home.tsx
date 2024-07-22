@@ -32,7 +32,6 @@ function Home() {
     const [transactionData, setTransactionData] = useState<TransactionResponse>();
     const [transactionByDateData, setTransactionByDateData] = useState<TransactionByDateResponse>();
     const [isBusy, setBusyState] = useState(true);
-    let test = 0;
 
     useEffect(() => {
         async function getData() {
@@ -53,7 +52,7 @@ function Home() {
             alert("error fetching file information");
         }
     }
-    
+
     async function fetchTransactionData() {
         try {
             const response = await getTransactionData(userId, null) as TransactionResponse;
