@@ -73,7 +73,7 @@ function Categories() {
             wantsCol = underColour;
         }
 
-        if(budgetSplitData.debtsAndSavings > 20) {
+        if(budgetSplitData.debtsAndSavings < 20 || budgetSplitData.debtsAndSavings > 20) {
             debtsAndSavingsCol = overColour;
         } else {
             debtsAndSavingsCol = underColour;
