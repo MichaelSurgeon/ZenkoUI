@@ -2,8 +2,10 @@ import { host } from '../Helpers/config.js';
 
 const createUserEndpoint = host + 'api/account/createUser';
 const getUserEndpoint = host + 'api/account/getUser';
+const updateUserEndpoint = host + 'api/account/updateUser';
 const post = 'POST';
-const GET = 'GET'
+const get = 'GET'
+const patch = 'PATCH'
 const genericHeaders = { 'Content-Type': 'application/json' }
 
 export const createUser = async (body) => {
@@ -25,7 +27,7 @@ export const createUser = async (body) => {
 export const getUser = async (email, password) => {
   try {
     let endpoint = getUserEndpoint + `?Email=${email}&Password=${password}`;
-    const response = await fetchData(endpoint, GET, genericHeaders, null);
+    const response = await fetchData(endpoint, get, genericHeaders, null);
     if (response.ok) {
       const data = await response.json();
       localStorage.setItem("UserId", data.userId)
@@ -38,6 +40,23 @@ export const getUser = async (email, password) => {
   catch (error) {
     console.log(error);
     return 'Error getting user';
+  }
+};
+
+export const updateUser = async (body) => {
+  try {
+    let endpoint = updateUserEndpoint;
+    const response = await fetchData(endpoint, patch, genericHeaders, body);
+    if (response.ok) {
+      return "User updated"
+    }
+    else if (response.status === 404) {
+      return 'User not found or user not authorized';
+    }
+  }
+  catch (error) {
+    console.log(error);
+    return 'Error updating user';
   }
 };
 

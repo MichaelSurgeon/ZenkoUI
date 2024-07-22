@@ -1,0 +1,54 @@
+.account-nav-wrapper {
+    height: 8rem;
+}
+
+.account-heading {
+    color: white;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+}
+
+.account-profile-picture {
+    width: 13rem;
+    height: 13rem;
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 50%;
+    margin-bottom: 3rem;
+}
+
+.account-text {
+    color: white;
+    font-weight: 600;
+    font-size: 1.3rem;
+    text-align: left;
+}
+
+.account-form {
+    margin: 0 auto;
+    width: 31rem;
+}
+
+.account-update-container {
+    margin-bottom: 5rem;
+}
+
+.account-input-item {
+    width: 30rem;
+    margin-bottom: 0.5rem;
+}
+
+.account-button {
+    width: 31rem;
+    height: 3rem;
+    margin-top: 2rem;
+    color: white;
+    background-color: #D1495B;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.account-button:hover {
+    background-color: lightcoral;
+    cursor: pointer;
+}

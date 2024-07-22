@@ -5,6 +5,7 @@ import SignIn from './Pages/SignIn/SignIn';
 import Home from './Pages/Home/Home';
 import DataUpload from './Pages/DataUpload/DataUpload';
 import Categories from './Pages/Categories/Categories';
+import Account from './Pages/Account/Account';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/SignIn" element={<SignIn />} />
             <Route path="/DataUpload" element={<DataUpload />} />
             <Route path="/Categories" element={<Categories />} />
+            <Route path="/Account" element={<Account />} />
           </Routes>
         </div>
       </div>
