@@ -27,7 +27,7 @@ the application.
 
 # File Information
 
-In order to upload a file you have to follow this format (CSV ONLY) I have attached an example file to the repo
+In order to upload a file you have to follow this format (CSV ONLY) I have attached an example file to the repo in src/examplefile/... import it into excel if you want to view it
 
 Name  | Amount | Location | Date | Category
 ------------- | ------------- | ------------- | ------------- | -------------
@@ -36,6 +36,7 @@ Cafe | 22.50 | Edinburgh | 24/06/2024 | Transport
 Limitations 
 - in current state there is no valdiation for length of data however if the length is to long it might mess with the table (this was out of scope)
 - there are a list of accepted categories that you can use listed below the limitations all of which must start with a capital (this will be changed in the future for lower case and upper)
+- if you add in more than 30 days into the file the data table will add in every date (this will eventually be split by week) I would stick to around 30 days ish
 
 Accepted categories
 - Eating Out
