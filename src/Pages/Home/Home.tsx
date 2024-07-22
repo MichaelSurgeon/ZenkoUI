@@ -28,11 +28,7 @@ type TransactionByDateResponse = {
 
 
 function Home() {
-
-    const userId = React.useMemo(() => {
-        localStorage.getItem("UserId");
-    }, []);
-
+    const userId = localStorage.getItem("UserId");
     const [aggregatedData, setAggregatedData] = useState<AggregatedData>();
     const [transactionData, setTransactionData] = useState<TransactionResponse>();
     const [transactionByDateData, setTransactionByDateData] = useState<TransactionByDateResponse>();
@@ -101,7 +97,7 @@ function Home() {
                         </div>
                     </>
                     }
-                    {transactionData &&
+                    {Array.isArray(transactionData?.transactions) &&
                         <>
                             <div className="transaction-home-data-table-container">
                                 <h2 className="transaction-home-data-table-header">Transactions</h2>
