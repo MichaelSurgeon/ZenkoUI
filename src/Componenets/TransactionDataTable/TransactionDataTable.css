@@ -1,6 +1,6 @@
 .table-container-transactions {
     background-color: white;
-    width: 90rem;
+    width: 85rem;
     height: 49.2rem;
     margin: 0 auto;
     border-radius: 3rem;
@@ -10,7 +10,7 @@
 }
 
 .transactions-table {
-    width: 90rem;
+    width: 85rem;
 }
 
 .category-cell-style {
@@ -52,7 +52,6 @@
 .transaction-table-pagination-container {
     margin: 0 auto;
     margin-top: 1rem;
-    width: 90rem;
     height: 5rem;
 }
 
