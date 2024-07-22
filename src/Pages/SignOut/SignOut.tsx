@@ -15,7 +15,7 @@ function SignOut() {
                         <h1>Zenko</h1>
                     </div>
                     <div className='signout-content'>
-                        <h2>See you again soon!</h2>
+                        <h2 className='signout-message'>Successfully signed out, see you again soon!</h2>
                     </div>
                     <Link className="signIn-button" to="/SignIn">Sign In</Link>
                 </div>
