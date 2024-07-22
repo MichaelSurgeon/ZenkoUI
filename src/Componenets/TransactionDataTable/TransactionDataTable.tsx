@@ -98,7 +98,7 @@ function TransactionDataTable(data : any) {
     }
 
     const getCategoryColor = (value: any) => {
-        return categoryColours[value.value];
+        return categoryColours[value.value] || "black";
     };
 
     const canPrevious = currentPage > 1;
