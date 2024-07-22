@@ -68,7 +68,7 @@ Within the categories page you will see wants, needs, debts/savings this is base
 - Needs
   - red if you exceed 50 percent
   - green if you are under 50 percent
-- Debs/Savings
+- Debts/Savings
   - red if you exceed 20 percent or if you are under 20 percent
   - green if you are bang on 20 percent (thought this would be a good indication of savings) potentially a use case to add in an amber colour with a tolerance of 5 percent either side.
 
