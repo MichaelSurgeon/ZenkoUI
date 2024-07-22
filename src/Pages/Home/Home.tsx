@@ -5,7 +5,6 @@ import { getAgregattedTransactions, getAllTransactionByDateData, getBudgetSplitD
 import "./Home.css"
 import TransactionDataTable from "../../Componenets/TransactionDataTable/TransactionDataTable";
 import LineChart from "../../Componenets/LineChart/LineChart";
-import React from "react";
 
 type AggregatedData = {
     totalSpend: number
