@@ -2,7 +2,7 @@
 ---
 This UI was build as the front end for the Zenko API which can be found in my repositories its an application in which users can upload transactional data to a specified format, and run some analysis on the data to get some insights on their financials i.e total spend,
 number of transactions, most common categories, spend per day and the data is even split out by category so it can provide you a nice view of each.
----
+
 # Getting started 
 ---
 In order to get started you must clone this repo to your local machine then we can get started:
