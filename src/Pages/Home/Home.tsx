@@ -5,6 +5,7 @@ import { getAgregattedTransactions, getAllTransactionByDateData, getBudgetSplitD
 import "./Home.css"
 import TransactionDataTable from "../../Componenets/TransactionDataTable/TransactionDataTable";
 import LineChart from "../../Componenets/LineChart/LineChart";
+import React from "react";
 
 type AggregatedData = {
     totalSpend: number
@@ -25,9 +26,13 @@ type TransactionByDateResponse = {
     category: string
 };
 
-const userId = localStorage.getItem("UserId");
 
 function Home() {
+
+    const userId = React.useMemo(() => {
+        localStorage.getItem("UserId");
+    }, []);
+
     const [aggregatedData, setAggregatedData] = useState<AggregatedData>();
     const [transactionData, setTransactionData] = useState<TransactionResponse>();
     const [transactionByDateData, setTransactionByDateData] = useState<TransactionByDateResponse>();
@@ -88,14 +93,22 @@ function Home() {
                         <KpiCard header="Most Common" data={aggregatedData?.mostCommonCategory}/>
                         <KpiCard header="Rating"/>
                     </div>
-                    <div className="home-line-graph">
-                        <h2 className="transaction-home-data-table-header">Spend Per Day (Month) </h2>
-                        <LineChart data={transactionByDateData}/>
-                    </div>
-                    <div className="transaction-home-data-table-container">
-                        <h2 className="transaction-home-data-table-header">Transactions</h2>
-                        <TransactionDataTable data={transactionData}/>
-                    </div>
+                    {Array.isArray(transactionByDateData) &&
+                    <>
+                        <div className="home-line-graph">
+                            <h2 className="transaction-home-data-table-header">Spend Per Day (Month) </h2>
+                            <LineChart data={transactionByDateData}/>
+                        </div>
+                    </>
+                    }
+                    {transactionData &&
+                        <>
+                            <div className="transaction-home-data-table-container">
+                                <h2 className="transaction-home-data-table-header">Transactions</h2>
+                                <TransactionDataTable data={transactionData}/>
+                            </div>
+                        </>
+                    }
                 </div>
             )}
         </>

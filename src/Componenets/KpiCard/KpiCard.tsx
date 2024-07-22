@@ -1,8 +1,6 @@
 import './KpiCard.css'
 
 const KpiCard = (props : any) => {
-    console.log(props);
-    console.log(props.footer)
     return (
         <>
             <div className='kpi-card'>
@@ -12,7 +10,6 @@ const KpiCard = (props : any) => {
                 <div className="kpi-card-container"  style={{backgroundColor: props.backgroundColor || "white"}}>
                     <h2 style={{color: props.fontColor}}>{props.data ?? "N/A"}</h2>
                 </div>
-
             </div>
         </>
     )
