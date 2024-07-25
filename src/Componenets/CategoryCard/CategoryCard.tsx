@@ -49,7 +49,7 @@ function CategoryCard(data: any) {
                     <div className="category-card-content-left">
                         <p>Amount Spent: </p>
                         <p>Transactions Count: </p>
-                        <p>Percentage of Income: </p>
+                        <p>Percentage of Spend: </p>
                     </div>
                     <div className="category-card-content-right">
                         <p>£{dat.amountSpent || "N/A"} </p>
